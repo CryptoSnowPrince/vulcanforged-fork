@@ -1,0 +1,127 @@
+.Header {
+  height: 70px;
+  display: grid;
+  padding: 0 2rem;
+  z-index: 1000;
+  width: 100%;
+  /* background-color: black; */
+  cursor: pointer;
+  background: transparent -webkit-gradient(linear, left top, left bottom, from(#000000D9), to(#00000000)) 0% 0% no-repeat padding-box;
+  background: transparent -webkit-linear-gradient(top, #000000D9 0%, #00000000 100%) 0% 0% no-repeat padding-box;
+  background: transparent -o-linear-gradient(top, #000000D9 0%, #00000000 100%) 0% 0% no-repeat padding-box;
+  background: transparent linear-gradient(180deg, #000000D9 0%, #00000000 100%) 0% 0% no-repeat padding-box;
+  -webkit-backdrop-filter: blur(20px);
+  -moz-backdrop-filter: blur(20px);
+  -ms-backdrop-filter: blur(20px);
+  -o-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  position: fixed;
+}
+
+.Logo {
+  grid-area: logo;
+  width: 250px;
+}
+
+.Nav {
+  z-index: 1;
+  /* display: grid;
+    grid-area: nav;
+    grid-template-columns: repeat(2, auto);
+    align-items: center;
+    justify-items: right;
+    max-width: 400px; */
+}
+.Nav a {
+  color: white;
+  font-weight: 700;
+  transition: 0.5s;
+  padding: 0 20px;
+  text-decoration: none;
+}
+.Nav a:hover {
+  transform: scale(1.1);
+  color: white;
+}
+.Nav button {
+  outline: none;
+  border: none;
+  color: white;
+  font-weight: 700;
+  background-color: black;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 70ms;
+  transition: 0.5s;
+}
+.Nav button:hover {
+  transform: scale(1.1);
+  color: white;
+}
+.Nav button:active {
+  transform: translateY(3px);
+}
+
+.Burger {
+  display: none;
+  grid-area: burger;
+  margin: 0 20px 0 0;
+  padding: 0;
+  justify-self: end;
+  font-size: 40px;
+  border: none;
+  background: none;
+  outline: none;
+  transition: 0.1s;
+}
+.Burger:active {
+  transform: scale(1.2);
+}
+
+@media (max-width: 920px) {
+  .Header {
+    grid-template-areas: "logo burger" "nav nav";
+  }
+  .Nav {
+    display: grid;
+    grid-area: nav;
+    flex-direction: column !important;
+    /* grid-template-columns: repeat(2, auto);
+    align-items: center;
+    justify-items: right; */
+    grid-template-rows: repeat(2, auto);
+    grid-template-columns: none;
+    grid-row-gap: 20px;
+
+    padding: 30px 0 30px;
+    background: rgba(40, 44, 47, 0.95);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .Nav a,
+  .Nav a:hover {
+    color: #fff !important;
+  }
+  .Burger {
+    display: inline;
+  }
+}
+
+.NavAnimation-enter {
+  opacity: 0;
+  transform: scale(0.5);
+}
+.NavAnimation-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 350ms, transform 350ms;
+}
+.NavAnimation-exit {
+  opacity: 1;
+}
+.NavAnimation-exit-active {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 350ms, transform 350ms;
+}
